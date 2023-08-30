@@ -21,17 +21,6 @@ resource "kubectl_manifest" "manifest" {
   yaml_body = element(data.kubectl_path_documents.manifest.documents, count.index)
 }
 
-data "kubernetes_service" "service" {
-  depends_on = [kubectl_manifest.manifest]
-
-  metadata {
-    name      = local.service_name
-    namespace = local.namespace
-  }
-}
-
 locals {
-  name          = coalesce(var.name, "${var.walrus_metadata_service_name}")
   namespace     = coalesce(var.namespace, var.walrus_metadata_namespace_name)
-  service_name  = coalesce(var.service_name, "${var.walrus_metadata_service_name}")
 }
