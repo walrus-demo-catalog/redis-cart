@@ -8,7 +8,7 @@ terraform {
 }
 
 data "kubectl_path_documents" "manifest" {
-  pattern = "${path.module}/mainfest.yaml"
+  pattern = "${path.module}/manifest.yaml"
   vars = {
     namespace        = local.namespace 
   }
