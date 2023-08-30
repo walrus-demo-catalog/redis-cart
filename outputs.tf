@@ -5,5 +5,5 @@ output "service_ip" {
 
 output "service_name" {
   description = "Service name"
-  value       = data.kubernetes_service.service.metadata.name
+  value       = data.kubernetes_service.service.metadata.0.name
 }
