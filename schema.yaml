@@ -1,0 +1,82 @@
+openapi: 3.0.3
+info:
+  title: OpenAPI schema for template redis-cart
+components:
+  schemas:
+    variables:
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          description: Name of the deployment resource. Auto-generated if empty.
+          default: redis-cart
+          nullable: true
+          x-walrus-ui:
+            order: 1
+            group: Deployment
+        namespace:
+          title: Namespace
+          type: string
+          description: Namespace to deploy. Auto-generated if empty.
+          default: ""
+          nullable: true
+          x-walrus-ui:
+            order: 2
+            group: Deployment
+        service_name:
+          title: Service Name
+          type: string
+          description: Service name
+          default: redis-cart
+          nullable: true
+          x-walrus-ui:
+            order: 3
+            group: Deployment
+        walrus_metadata_service_name:
+          title: Walrus Metadata Service Name
+          type: string
+          description: Walrus metadata service name.
+          default: ""
+          nullable: true
+          x-walrus-ui:
+            order: 4
+            hidden: true
+        walrus_metadata_namespace_name:
+          title: Walrus Metadata Namespace Name
+          type: string
+          description: Walrus metadata namespace name.
+          default: ""
+          nullable: true
+          x-walrus-ui:
+            order: 5
+            hidden: true
+        context:
+          title: Context
+          type: object
+          description: |
+            Receive contextual information. When Walrus deploys, Walrus will inject specific contextual information into this field.
+
+            Examples:
+            ```
+            context:
+              project:
+                name: string
+                id: string
+              environment:
+                name: string
+                id: string
+              resource:
+                name: string
+                id: string
+            ```
+          default: {}
+          nullable: true
+          additionalProperties:
+            type: object
+            x-walrus-ui:
+              colSpan: 12
+          x-walrus-ui:
+            colSpan: 12
+            order: 6
+            hidden: true

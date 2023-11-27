@@ -10,7 +10,7 @@ terraform {
 data "kubectl_path_documents" "manifest" {
   pattern = "${path.module}/manifest.yaml"
   vars = {
-    namespace        = local.namespace 
+    namespace = local.namespace
   }
 }
 
@@ -22,5 +22,5 @@ resource "kubectl_manifest" "manifest" {
 }
 
 locals {
-  namespace     = coalesce(try(var.namespace, null), try(var.walrus_metadata_namespace_name, null), try(var.context["environment"]["namespace"], null))
+  namespace = coalesce(try(var.namespace, null), try(var.walrus_metadata_namespace_name, null), try(var.context["environment"]["namespace"], null))
 }
