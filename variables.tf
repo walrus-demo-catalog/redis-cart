@@ -16,18 +16,6 @@ variable "service_name" {
   default     = "redis-cart"
 }
 
-variable "walrus_metadata_service_name" {
-  type        = string
-  description = "Walrus metadata service name."
-  default     = ""
-}
-
-variable "walrus_metadata_namespace_name" {
-  type        = string
-  description = "Walrus metadata namespace name."
-  default     = ""
-}
-
 variable "context" {
   description = <<-EOF
 Receive contextual information. When Walrus deploys, Walrus will inject specific contextual information into this field.
