@@ -22,5 +22,5 @@ resource "kubectl_manifest" "manifest" {
 }
 
 locals {
-  namespace = coalesce(try(var.namespace, null), try(var.walrus_metadata_namespace_name, null), try(var.context["environment"]["namespace"], null))
+  namespace = coalesce(try(var.namespace, null), try(var.context["environment"]["namespace"], null))
 }
